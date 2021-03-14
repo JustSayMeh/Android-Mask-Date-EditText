@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Date Edit Text</string>
     <string name="invalid_day">Неправильное Число</string>
     <string name="invalid_month">Неправильный Месяц</string>
     <string name="invalid_day_of_month">Неверно задано Число Месяца</string>
