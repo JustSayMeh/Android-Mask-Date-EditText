@@ -8,6 +8,7 @@ import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import android.view.Gravity
+import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.text.ParseException
@@ -19,7 +20,9 @@ import java.util.*
  * This class Allows the user to enter a date as a text and then verify it based on date format, divider character
  * and min or max date with other options
  */
+
 class DateEditText : TextInputEditText {
+    private val buttons: MutableList<Button> = mutableListOf<Button>()
 
 
     enum class DateFormat(val value: String) {
@@ -86,6 +89,13 @@ class DateEditText : TextInputEditText {
      * init edit text with given arguments from AttributeSet
      * @param attrs: AttributeSet
      */
+    fun addButtonToListen(button : Button){
+        button.setEnabled(false)
+        buttons.add(button)
+    }
+    fun clearButtons(button : Button){
+        buttons.clear()
+    }
     @SuppressLint("RtlHardcoded")
     private fun initDateEditText(attrs: AttributeSet? = null) {
         gravity = Gravity.LEFT
@@ -249,6 +259,18 @@ class DateEditText : TextInputEditText {
             value = manageDateDivider(value, firstDividerPosition, start, before)
             if (dateFormat == DateFormat.DDMMyyyy) {
                 value = manageDateDivider(value, nextDividerPosition, start, before)
+            }
+            if (value.length > 6 && valueWithError == null)
+            {
+                buttons.forEach{
+                    it.setEnabled(true)
+                }
+            }
+            else
+            {
+                buttons.forEach{
+                    it.setEnabled(false)
+                }
             }
             edited = true
             setText(value)

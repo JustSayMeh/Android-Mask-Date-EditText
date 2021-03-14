@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Date Edit Text</string>
+    <string name="invalid_day">Неправильное Число</string>
+    <string name="invalid_month">Неправильный Месяц</string>
+    <string name="invalid_day_of_month">Неверно задано Число Месяца</string>
+    <string name="invalid_day_of_month_leap_year">Неправильное Число для Месяца Високосного Года</string>
+    <string name="invalid_date_max">Неправильная Максимальная Дата</string>
+    <string name="invalid_date_min">Неправильная Минимальная Дата</string>
+</resources>
